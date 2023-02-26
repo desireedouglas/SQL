@@ -1,0 +1,33 @@
+--Create a toy store data base
+
+CREATE TABLE toy_store (id integer primary key, name text, brand text,color text, category text, quantity integer, price real);
+
+INSERT INTO toy_store VALUES (1, 'bike', 'retrospec', 'black', 'outdoors', 20, 299.99);
+INSERT INTO toy_store VALUES (2, 'bike', 'retrospec', 'pink', 'outdoors', 15, 349.99);
+INSERT INTO toy_store VALUES (3, 'bike', 'retrospec', 'silver', 'outdoors', 15, 345.99);
+INSERT INTO toy_store VALUES (4, 'scooter', 'turboant', 'black', 'outdoors', 20 , 499);
+INSERT INTO toy_store VALUES (5, 'scooter', 'turboant', 'blue', 'outdoors' , 15, 459.99);
+INSERT INTO toy_store VALUES (6, 'puzzle' , 'galison', 'forest', 'crafts', 10, 19.99);
+INSERT INTO toy_store VALUES (7, 'puzzle' , 'galison', 'house', 'crafts', 10, 19.99);
+INSERT INTO toy_store VALUES (8, 'puzzle' , 'galison', 'park', 'crafts', 10, 19.99);
+INSERT INTO toy_store VALUES (9, 'legos' , 'the lego group', 'harry potter', 'inside toys', 10, 29.99);
+INSERT INTO toy_store VALUES (10, 'legos' , 'the lego group', 'barbie', 'inside toys', 10, 29.99);
+INSERT INTO toy_store VALUES (11, 'playdoh' , 'hasbro', 'green', 'inside toys', 10, 5.99);
+INSERT INTO toy_store VALUES (12, 'playdoh' , 'hasbro', 'red', 'inside toys', 10, 5.99);
+INSERT INTO toy_store VALUES (13, 'playdoh' , 'hasbro', 'pink', 'inside toys', 10, 5.99);
+INSERT INTO toy_store VALUES (14, 'playdoh' , 'hasbro', 'blue', 'inside toys', 10, 5.99);
+INSERT INTO toy_store VALUES (15, 'playdoh' , 'hasbro', 'white', 'inside toys', 10, 5.99);
+
+--Display most expensive item for sale
+
+SELECT * FROM toy_store ORDER BY price;
+SELECT MAX(price) FROM toy_store;
+
+--Display price list from least expensive to most
+
+SELECT price, category FROM toy_store
+order by price asc;
+
+--Display outdoors toys equal to or less than 300
+
+SELECT * FROM toy_store WHERE category = 'outdoors' AND price < 300
