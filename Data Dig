@@ -137,3 +137,21 @@ SELECT * FROM sales WHERE price > 3000 ORDER BY transaction_date;
 SELECT * FROM sales WHERE price > 5000 AND transaction_date < 1/1/2009;
 
 SELECT * FROM sales WHERE product = "chair" OR price > 1000;
+
+SELECT product, price, ROUND(price*1) AS furniture_price FROM sales;
+
+SELECT COUNT(*),
+
+CASE
+
+WHEN price > 500 THEN'low sale'
+
+WHEN price > 1200 THEN'mid sale'
+
+WHEN price > 3000 THEN'high sale'
+
+ELSE 'pocket change'
+
+END as 'sales range'FROM sales
+
+GROUP BY "price";
